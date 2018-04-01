@@ -1,4 +1,4 @@
-# lab1 (Game of life)
+# lab0 (Game of life)
 
 __Instructions:__
 1. open terminal/console
