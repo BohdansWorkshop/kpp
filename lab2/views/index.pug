@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    
+    link(rel="stylesheet", href="css/main.css")
+        
+    script(type="application/javascript", src="js/libs/jquery-3.3.1.min.js")
+    script(type="application/javascript", src="js/main.js")
+            
+    title #{title}
+body
+    .container
+        .app__header
+            span.title Tasks:
+        .app__body
+            ul.list
+                each task in tasks
+                    if task.complete
+                        li.list-item(data-id= `${task.id}`).complete
+                            span.list-text(data-id= `${task.id}`) #{task.name}
+                            span.edit-icon
+                            span(data-id= `${task.id}`).list-remove
+                    else
+                        li.list-item(data-id= `${task.id}`)
+                            span.list-text(data-id= `${task.id}`) #{task.name}
+                            span.edit-icon
+                            //span(data-id= `${task.id}`).remove-icon
+                            span(data-id= `${task.id}`).list-remove
+        form(action="/add" method="POST").form
+            input(type="text" name="add" placeholder="Enter task").add__task-new
+            input(type="submit").add__task-btn
+        
+        
